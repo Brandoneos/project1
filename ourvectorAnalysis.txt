@@ -1,0 +1,142 @@
+Welcome to the Gerrymandering App!
+
+Data Loaded? No
+State: N/A
+
+Enter command: load districts_short.txt eligible_voters_short.txt
+
+-----------------------------
+
+
+Reading: districts_short.txt 
+...New York...1 districts total
+...Montana...1 districts total
+...California...53 districts total
+...Connecticut...5 districts total
+...Illinois...18 districts total
+...Iowa...4 districts total
+...Nebraska...3 districts total
+...Rhode Island...2 districts total
+...New Mexico...3 districts total
+...Minnesota...8 districts total
+...Colorado...7 districts total
+
+Reading: eligible_voters_short.txt
+...California...25278803 eligible voters
+...Colorado...3978892 eligible voters
+...Connecticut...2572337 eligible voters
+...Illinois...8983758 eligible voters
+...Iowa...2297129 eligible voters
+...Minnesota...3972330 eligible voters
+...Montana...803833 eligible voters
+...Nebraska...1353558 eligible voters
+...New Mexico...1459901 eligible voters
+...Rhode Island...786111 eligible voters
+
+Data Loaded? Yes
+State: N/A
+
+Enter command: search Illinois
+
+-----------------------------
+
+
+Data Loaded? Yes
+State: Illinois
+
+Enter command: search montana
+
+-----------------------------
+
+
+Data Loaded? Yes
+State: Montana
+
+Enter command: stats
+
+-----------------------------
+
+Gerrymandered: No
+Wasted Democratic votes: 148690
+Wasted Republican voters: 27590
+Eligible voters: 803833
+
+Data Loaded? Yes
+State: Montana
+
+Enter command: plot
+
+-----------------------------
+
+District: 1
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+
+Data Loaded? Yes
+State: Montana
+
+Enter command: search Nebraska
+
+-----------------------------
+
+
+Data Loaded? Yes
+State: Nebraska
+
+Enter command: stats
+
+-----------------------------
+
+Gerrymandered: Yes
+Gerrymandered against: Democrats
+Efficiency Factor: 10.3764%
+Wasted Democratic votes: 104219
+Wasted Republican voters: 158804
+Eligible voters: 1353558
+
+Data Loaded? Yes
+State: Nebraska
+
+Enter command: plot
+
+-----------------------------
+
+District: 1
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+District: 2
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+District: 3
+DDDDDDDDDDDDDDDDDDDDDDDDRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+
+Data Loaded? Yes
+State: Nebraska
+
+Enter command: exit
+
+-----------------------------
+
+*********************************************************
+ourvector<9ourvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE> stats:
+ # of vectors created:   3
+ # of elements inserted: 33
+ # of elements accessed: 60
+*********************************************************
+*********************************************************
+ourvector<NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE> stats:
+ # of vectors created:   156
+ # of elements inserted: 1450
+ # of elements accessed: 1307
+*********************************************************
+
+Three vectors were created globally at launch, states, eligibleStates, and eligibleVoters. These are regular vectors and not 2d.
+(lines 30,36,37)
+3 more were created as 2d vectors. (districts, rVotes, dVotes). lines 32-34
+in search I create a duplicate of the stateArray everytime search() is run so, that is 3 more times as I run the command 3 times above.
+(line 227)
+in load I create  3 vectors which will go inside my 2d vectors for every line in the districts file. In this case there were 11 states, so 11*3 = 33.
+This was on line 317-319. 
+
+so far we are at 3+3+3+33+
+I access insert elements only during the intial load for the state names, district numbers, district votes for both republicans and
+democrats. And then again when inserting vectors into the 2d vectors for rVotes,districts,dVotes. And then again during the second file,
+ which is voter eligibility. I access elements of the vectors throughout the program including all the functions, stats, plot, search, and load
+
